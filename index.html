@@ -3,12 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Lullaby AI | Soft Intelligence That Soothes</title>
-    <meta name="description" content="Lullaby AI brings soft, soothing intelligence to your world. Gentle, intuitive, and beautifully human — like a quiet song at twilight.">
-    <meta name="keywords" content="lullaby AI, soft soothe, gentle intelligence, peach warmth, ethical AI">
-    <meta name="author" content="Lullaby Labs">
+    <title>Pulse AI · Intelligent Enterprise Platform</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -17,82 +14,63 @@
         }
 
         body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background: #fefaf7;
-            color: #3d2b1d;
+            font-family: 'Inter', sans-serif;
+            background: #ffffff;
+            color: #111827;
             line-height: 1.5;
             scroll-behavior: smooth;
         }
 
         :root {
-            --lullaby-light: #fff0e8;
-            --lullaby-soft: #ffe0cc;
-            --lullaby-glow: #ffccae;
-            --lullaby-warm: #f5a06b;
-            --lullaby-deep: #c45a2e;
-            --shadow-soft: 0 12px 28px rgba(196, 90, 46, 0.05);
-            --glow-soft: 0 0 28px rgba(245, 160, 107, 0.28);
-            --radius-card: 32px;
-        }
-
-        /* Calm wave pattern */
-        .calm-wave {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            background-image: repeating-linear-gradient(45deg, rgba(255, 204, 174, 0.05) 0px, rgba(255, 204, 174, 0.05) 1px, transparent 1px, transparent 28px);
-            z-index: 0;
-        }
-        .calm-wave::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at 30px 40px, rgba(245, 160, 107, 0.04) 1px, transparent 1px);
-            background-size: 35px 35px;
-            pointer-events: none;
+            --peach: #f97316;
+            --peach-dark: #ea580c;
+            --peach-soft: #fed7aa;
+            --peach-bg: #fff7ed;
+            --peach-lightest: #fffbeb;
+            --gray-bg: #f9fafb;
+            --card-white: #ffffff;
+            --border: #e5e7eb;
+            --text-dark: #111827;
+            --text-muted: #6b7280;
+            --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.06);
+            --radius: 24px;
+            --radius-sm: 16px;
         }
 
         .container {
             max-width: 1280px;
             margin: 0 auto;
             padding: 0 32px;
-            position: relative;
-            z-index: 1;
         }
 
         /* Navigation */
         .navbar {
-            background: rgba(254, 250, 247, 0.94);
-            backdrop-filter: blur(14px);
+            background: rgba(255,255,255,0.96);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
             position: sticky;
             top: 0;
-            z-index: 101;
-            border-bottom: 1px solid var(--lullaby-soft);
+            z-index: 100;
         }
 
         .nav-wrapper {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0.9rem 0;
+            padding: 1rem 0;
             flex-wrap: wrap;
             gap: 1rem;
         }
 
         .logo {
-            font-size: 2rem;
-            font-weight: 800;
-            background: linear-gradient(125deg, #c45a2e, #f5a06b);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            letter-spacing: -0.01em;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        .logo span {
+            color: var(--peach);
         }
 
         .nav-links {
@@ -105,51 +83,51 @@
         .nav-links a {
             text-decoration: none;
             font-weight: 500;
-            color: #8a644c;
+            color: var(--text-muted);
             transition: 0.2s;
         }
 
         .nav-links a:hover {
-            color: var(--lullaby-deep);
+            color: var(--peach);
         }
 
-        .btn-lullaby {
-            background: linear-gradient(115deg, var(--lullaby-deep), var(--lullaby-warm));
-            padding: 0.5rem 1.6rem;
-            border-radius: 50px;
+        .btn-primary {
+            background: var(--peach);
+            padding: 0.6rem 1.5rem;
+            border-radius: 100px;
             color: white;
             font-weight: 600;
             text-decoration: none;
             transition: 0.2s;
-            box-shadow: 0 2px 8px rgba(196, 90, 46, 0.12);
-            display: inline-block;
-            cursor: pointer;
             border: none;
+            display: inline-block;
         }
 
-        .btn-lullaby:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 14px rgba(196, 90, 46, 0.2);
+        .btn-primary:hover {
+            background: var(--peach-dark);
+            transform: translateY(-1px);
+        }
+
+        .btn-outline {
+            border: 1px solid var(--border);
+            padding: 0.6rem 1.5rem;
+            border-radius: 100px;
+            background: white;
+            font-weight: 500;
+            text-decoration: none;
+            color: var(--text-dark);
+            display: inline-block;
+        }
+
+        .btn-outline:hover {
+            border-color: var(--peach);
+            background: var(--peach-lightest);
         }
 
         /* Hero */
         .hero {
-            padding: 5rem 0 6rem;
-            background: radial-gradient(ellipse at 35% 40%, var(--lullaby-glow) 0%, var(--lullaby-light) 45%, #fefaf7 100%);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -10%;
-            right: -8%;
-            width: 55%;
-            height: 55%;
-            background: radial-gradient(circle, rgba(245, 160, 107, 0.1), transparent 70%);
-            filter: blur(42px);
-            pointer-events: none;
+            padding: 5rem 0;
+            background: linear-gradient(125deg, var(--peach-bg) 0%, #ffffff 70%);
         }
 
         .hero-grid {
@@ -157,44 +135,39 @@
             flex-wrap: wrap;
             align-items: center;
             gap: 3rem;
-            position: relative;
-            z-index: 2;
         }
 
-        .hero-text {
+        .hero-content {
             flex: 1;
         }
 
-        .hero-tag {
-            background: rgba(196, 90, 46, 0.1);
-            border: 1px solid var(--lullaby-soft);
-            border-radius: 50px;
-            padding: 0.3rem 1rem;
-            display: inline-block;
-            font-weight: 500;
+        .hero-badge {
+            background: var(--peach-soft);
+            color: var(--peach-dark);
+            border-radius: 100px;
+            padding: 0.25rem 1rem;
             font-size: 0.75rem;
-            color: var(--lullaby-deep);
+            font-weight: 600;
+            display: inline-block;
             margin-bottom: 1.5rem;
         }
 
-        .hero-text h1 {
-            font-size: 3.6rem;
-            font-weight: 800;
+        .hero-content h1 {
+            font-size: 3.2rem;
+            font-weight: 700;
             line-height: 1.2;
+            letter-spacing: -0.02em;
             margin-bottom: 1.2rem;
-            color: #3d2b1d;
+            color: var(--text-dark);
         }
 
-        .lullaby-word {
-            background: linear-gradient(135deg, var(--lullaby-deep), var(--lullaby-warm));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
+        .hero-highlight {
+            color: var(--peach);
         }
 
-        .hero-text p {
-            font-size: 1.2rem;
-            color: #9a735b;
+        .hero-content p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
             max-width: 90%;
             margin-bottom: 2rem;
         }
@@ -206,109 +179,141 @@
         }
 
         .stat-item h3 {
-            font-size: 1.8rem;
-            font-weight: 800;
-            color: var(--lullaby-deep);
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--peach);
         }
 
-        .hero-visual {
+        .stat-item span {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .hero-image {
             flex: 1;
             text-align: center;
-            background: rgba(255, 242, 234, 0.55);
-            backdrop-filter: blur(8px);
-            border-radius: 56px;
-            padding: 1.5rem;
-            box-shadow: var(--shadow-soft);
-            border: 1px solid var(--lullaby-soft);
         }
 
-        .btn-primary {
-            background: linear-gradient(115deg, var(--lullaby-deep), var(--lullaby-warm));
-            padding: 0.9rem 2.2rem;
-            border-radius: 50px;
-            color: white;
-            font-weight: 600;
-            display: inline-block;
-            text-decoration: none;
-            transition: 0.2s;
-            box-shadow: var(--shadow-soft);
-            cursor: pointer;
-            border: none;
+        .hero-image img {
+            max-width: 100%;
+            border-radius: var(--radius);
+            background: #e2e8f0;
         }
 
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 22px rgba(196, 90, 46, 0.2);
-        }
-
+        /* Sections */
         section {
             padding: 5rem 0;
         }
 
-        .section-header {
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
             text-align: center;
-            margin-bottom: 3rem;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
         }
 
-        .section-header h2 {
-            font-size: 2.4rem;
-            font-weight: 800;
-            color: #3d2b1d;
-            margin-bottom: 0.6rem;
+        .section-sub {
+            text-align: center;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 3rem;
         }
 
-        .section-header p {
-            color: #9a735b;
-            max-width: 580px;
-            margin: 0 auto;
-        }
-
-        /* Cards */
-        .cards-grid {
+        /* Features Grid */
+        .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
         }
 
-        .lullaby-card {
-            background: rgba(255, 242, 234, 0.7);
-            backdrop-filter: blur(4px);
-            border-radius: var(--radius-card);
-            padding: 2rem 1.8rem;
-            border: 1px solid var(--lullaby-soft);
-            transition: all 0.3s ease;
-            box-shadow: var(--shadow-soft);
-            cursor: pointer;
+        .feature-card {
+            background: var(--card-white);
+            border-radius: var(--radius-sm);
+            padding: 1.8rem;
+            border: 1px solid var(--border);
+            transition: 0.2s;
         }
 
-        .lullaby-card:hover {
-            transform: translateY(-7px);
-            border-color: var(--lullaby-glow);
-            box-shadow: var(--glow-soft);
-            background: rgba(255, 248, 242, 0.92);
+        .feature-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--peach-soft);
         }
 
-        .card-icon {
-            font-size: 2.4rem;
+        .feature-icon {
+            font-size: 2rem;
+            color: var(--peach);
             margin-bottom: 1rem;
         }
 
-        /* Soothe row */
-        .soothe-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 2rem;
-            background: var(--lullaby-light);
-            border-radius: 52px;
-            padding: 2.5rem;
-            border: 1px solid var(--lullaby-soft);
-            box-shadow: var(--shadow-soft);
+        .feature-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
         }
 
-        .soothe-cell {
-            flex: 1;
-            text-align: center;
-            padding: 0.6rem;
+        .feature-card p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Blog Cards */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .blog-card {
+            background: var(--card-white);
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+            border: 1px solid var(--border);
+            transition: 0.2s;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--peach-soft);
+        }
+
+        .blog-img {
+            background: var(--peach-lightest);
+            height: 160px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: var(--peach);
+        }
+
+        .blog-content {
+            padding: 1.5rem;
+        }
+
+        .blog-tag {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            font-weight: 600;
+            color: var(--peach);
+            letter-spacing: 0.5px;
+        }
+
+        .blog-card h3 {
+            font-size: 1.15rem;
+            margin: 0.5rem 0;
+        }
+
+        .blog-card p {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        .blog-meta {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-top: 1rem;
         }
 
         /* Pricing */
@@ -319,350 +324,368 @@
             justify-content: center;
         }
 
-        .price-card {
-            background: rgba(255, 242, 234, 0.9);
-            border-radius: 32px;
+        .pricing-card {
+            background: var(--card-white);
+            border-radius: var(--radius);
             flex: 1;
-            min-width: 270px;
+            min-width: 280px;
             padding: 2rem;
-            border: 1px solid var(--lullaby-soft);
-            transition: 0.25s;
-            box-shadow: var(--shadow-soft);
+            border: 1px solid var(--border);
+            transition: 0.2s;
         }
 
-        .price-card.featured {
-            border-top: 5px solid var(--lullaby-deep);
-            transform: scale(1.02);
-            background: #fffbf7;
-            box-shadow: var(--glow-soft);
+        .pricing-card.featured {
+            border-top: 3px solid var(--peach);
+            box-shadow: var(--shadow-md);
         }
 
-        .price-number {
-            font-size: 2.9rem;
-            font-weight: 800;
-            color: var(--lullaby-deep);
+        .price {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--peach);
             margin: 1rem 0;
         }
 
-        .btn-outline {
-            border: 1.5px solid var(--lullaby-deep);
-            padding: 0.7rem 1.8rem;
-            border-radius: 50px;
-            background: transparent;
-            color: var(--lullaby-deep);
-            font-weight: 600;
-            text-decoration: none;
-            display: inline-block;
-            transition: 0.2s;
-            cursor: pointer;
+        .price span {
+            font-size: 0.9rem;
+            font-weight: 400;
+            color: var(--text-muted);
         }
 
-        .btn-outline:hover {
-            background: var(--lullaby-deep);
-            color: white;
+        .pricing-card ul {
+            list-style: none;
+            margin: 1.5rem 0;
         }
 
+        .pricing-card li {
+            padding: 0.5rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .pricing-card li i {
+            color: var(--peach);
+            font-size: 0.8rem;
+        }
+
+        /* CTA */
         .cta-section {
-            background: linear-gradient(125deg, var(--lullaby-light), #fff0e6);
-            border-radius: 52px;
+            background: var(--peach-bg);
+            border-radius: var(--radius);
             text-align: center;
             padding: 3rem;
-            border: 1px solid var(--lullaby-soft);
-            box-shadow: var(--shadow-soft);
+            margin: 2rem 0;
+            border: 1px solid var(--peach-soft);
+        }
+
+        .cta-section h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .cta-section .btn-primary {
+            margin-top: 1rem;
         }
 
         /* Privacy */
-        .privacy-section {
-            background: #fff5ef;
-            border-radius: 38px;
-            padding: 2.5rem;
+        .privacy-block {
+            background: var(--card-white);
+            border-radius: var(--radius-sm);
+            padding: 2rem;
             margin: 2rem 0;
-            border: 1px solid var(--lullaby-soft);
-            scroll-margin-top: 90px;
-            box-shadow: var(--shadow-soft);
+            border: 1px solid var(--border);
+            scroll-margin-top: 80px;
         }
 
-        .privacy-section h2, .privacy-section h3 {
-            color: #3d2b1d;
-            margin-top: 1.8rem;
-            font-weight: 800;
+        .privacy-block h2, .privacy-block h3 {
+            color: var(--text-dark);
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
         }
 
-        .privacy-section p, .privacy-section li {
-            color: #9a735b;
+        .privacy-block h2:first-child {
+            margin-top: 0;
         }
 
+        .privacy-block p, .privacy-block li {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .privacy-block ul {
+            padding-left: 1.2rem;
+        }
+
+        /* Footer */
         footer {
-            background: linear-gradient(115deg, #f0e0d4, #fae8dd);
-            color: #b08066;
+            background: #0f172a;
+            color: #94a3b8;
             padding: 3rem 0 2rem;
-            border-top: 1px solid var(--lullaby-soft);
+            margin-top: 2rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-grid h4 {
+            color: white;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .footer-grid a, .footer-grid p {
+            color: #94a3b8;
+            text-decoration: none;
+            font-size: 0.85rem;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-grid a:hover {
+            color: var(--peach);
         }
 
         .back-to-top {
             position: fixed;
             bottom: 2rem;
             right: 2rem;
-            background: linear-gradient(115deg, var(--lullaby-deep), var(--lullaby-warm));
+            background: var(--peach);
             color: white;
-            width: 46px;
-            height: 46px;
+            width: 44px;
+            height: 44px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             text-decoration: none;
-            opacity: 0.8;
             transition: 0.2s;
             z-index: 99;
-            box-shadow: var(--shadow-soft);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
         }
 
         .back-to-top:hover {
-            opacity: 1;
-            transform: translateY(-3px);
+            background: var(--peach-dark);
+            transform: translateY(-2px);
         }
 
-        /* Modal */
-        .info-modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.5);
-            backdrop-filter: blur(8px);
-            z-index: 1000;
-            justify-content: center;
-            align-items: center;
-        }
-        .info-modal-content {
-            background: #fffaf5;
-            padding: 2rem;
-            border-radius: 32px;
-            max-width: 380px;
-            text-align: center;
-            border: 1px solid var(--lullaby-soft);
-            box-shadow: var(--glow-soft);
-        }
-        .info-modal-content h3 { color: var(--lullaby-deep); margin-bottom: 1rem; }
-        .info-modal-content p { color: #8a644c; margin-bottom: 0.5rem; }
-        .info-modal-content button {
-            margin-top: 1.5rem;
-            padding: 0.5rem 1.5rem;
-            background: var(--lullaby-deep);
-            color: white;
-            border: none;
-            border-radius: 40px;
-            cursor: pointer;
-        }
-
-        @media (max-width: 800px) {
-            .hero-text h1 { font-size: 2.2rem; }
+        @media (max-width: 768px) {
+            .container { padding: 0 20px; }
+            .hero-content h1 { font-size: 2.2rem; }
             .nav-wrapper { flex-direction: column; }
-            .section-header h2 { font-size: 1.9rem; }
+            .section-title { font-size: 1.6rem; }
         }
     </style>
 </head>
 <body>
 
-<div class="calm-wave"></div>
-
-<div id="demoModal" class="info-modal">
-    <div class="info-modal-content">
-        <i class="fas fa-moon" style="font-size: 3rem; color: #f5a06b;"></i>
-        <h3>Lullaby AI</h3>
-        <p>This is a gentle lullaby. In a live environment, this would open your personal soothing space.</p>
-        <button onclick="closeModal()">Rest here</button>
-    </div>
-</div>
-
 <nav class="navbar">
     <div class="container nav-wrapper">
-        <div class="logo">Lullaby<span style="color:#f5a06b;">🎵</span></div>
+        <div class="logo">Pulse<span>AI</span></div>
         <div class="nav-links">
             <a href="#home">Home</a>
-            <a href="#soothe">Soothe</a>
-            <a href="#calm">Calm</a>
-            <a href="#pricing">Plans</a>
-            <a href="#privacy">Trust</a>
-            <a href="#" class="btn-lullaby" onclick="openModal()">Hear lullaby</a>
+            <a href="#features">Features</a>
+            <a href="#blog">Blog</a>
+            <a href="#pricing">Pricing</a>
+            <a href="#privacy">Privacy</a>
+            <a href="#" class="btn-primary">Get started</a>
         </div>
     </div>
 </nav>
 
 <main>
+    <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="container hero-grid">
-            <div class="hero-text">
-                <div class="hero-tag"><i class="fas fa-moon"></i> Soothing intelligence</div>
-                <h1>AI that <span class="lullaby-word">sings gently</span> to you</h1>
-                <p>Lullaby AI brings soft, soothing intelligence to your world. Like a quiet song at twilight — ethical, intuitive, and beautifully human.</p>
-                <a href="#" class="btn-primary" onclick="openModal()"><i class="fas fa-head-side-heart"></i> Rest in lullaby</a>
+            <div class="hero-content">
+                <div class="hero-badge">Enterprise AI · Agentic Platform</div>
+                <h1>Intelligence that <span class="hero-highlight">powers</span> your future</h1>
+                <p>Deploy autonomous agents, fine-tune LLMs, and run predictive analytics on a secure, scalable infrastructure.</p>
+                <a href="#" class="btn-primary">Start free trial →</a>
                 <div class="hero-stats">
-                    <div class="stat-item"><h3>36k+</h3><span>soothed souls</span></div>
-                    <div class="stat-item"><h3>4.99★</h3><span>gentle rating</span></div>
-                    <div class="stat-item"><h3>∞</h3><span>peaceful care</span></div>
+                    <div class="stat-item"><h3>99.95%</h3><span>Uptime SLA</span></div>
+                    <div class="stat-item"><h3>2B+</h3><span>API calls</span></div>
+                    <div class="stat-item"><h3>350+</h3><span>enterprises</span></div>
                 </div>
             </div>
-            <div class="hero-visual">
-                <svg width="100%" height="250" viewBox="0 0 500 270" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <rect width="500" height="270" rx="36" fill="#FFF5EE" stroke="#FFE0CC" stroke-width="1"/>
-                    <circle cx="170" cy="125" r="48" fill="#FFEFE2" stroke="#F5A06B" stroke-width="1.5"/>
-                    <circle cx="170" cy="125" r="28" fill="#FFCCAE" fill-opacity="0.5"/>
-                    <circle cx="170" cy="125" r="11" fill="#C45A2E"/>
-                    <path d="M280 105 L340 135 L280 165 L220 135 Z" fill="#FFE0CC" stroke="#F5A06B" stroke-width="1.5"/>
-                    <circle cx="280" cy="135" r="8" fill="#C45A2E" fill-opacity="0.6"/>
-                    <path d="M390 115 L410 140 L390 165 L370 140 Z" fill="#FFCCAE" stroke="#F5A06B" stroke-width="1"/>
-                    <path d="M120 210 L180 210 L150 245 Z" fill="#FFEFE2" stroke="#F5A06B" stroke-width="1"/>
-                    <path d="M320 210 L380 210 L350 245 Z" fill="#FFEFE2" stroke="#F5A06B" stroke-width="1"/>
-                </svg>
+            <div class="hero-image">
+                <img src="https://placehold.co/550x450/1e293b/ffffff?text=AI+Dashboard&font=inter" alt="Pulse AI platform">
             </div>
         </div>
     </section>
 
-    <section id="soothe">
+    <!-- Features Section -->
+    <section id="features">
         <div class="container">
-            <div class="section-header">
-                <h2>Ways lullaby soothes you</h2>
-                <p>Gentle features that sing like evening song</p>
-            </div>
-            <div class="cards-grid">
-                <div class="lullaby-card" onclick="openModal()"><div class="card-icon">🎵</div><h3>Lullaby Chat</h3><p>Conversations that flow like a gentle melody — soft and comforting.</p></div>
-                <div class="lullaby-card" onclick="openModal()"><div class="card-icon">🌙</div><h3>Soothing Insights</h3><p>Beautiful, gentle analytics that arrive like twilight stars.</p></div>
-                <div class="lullaby-card" onclick="openModal()"><div class="card-icon">🍃</div><h3>Peaceful Current</h3><p>Automation that moves like a calm river — quiet and effortless.</p></div>
-                <div class="lullaby-card" onclick="openModal()"><div class="card-icon">🕯️</div><h3>Sacred Song</h3><p>Privacy-first, bias-aware, and transparent as moonlight.</p></div>
+            <h2 class="section-title">Built for production AI</h2>
+            <p class="section-sub">Everything you need to build, deploy, and scale machine learning models</p>
+            <div class="features-grid">
+                <div class="feature-card"><div class="feature-icon"><i class="fas fa-microchip"></i></div><h3>LLM Fine-tuning</h3><p>Customize foundation models with your proprietary data and domain expertise.</p></div>
+                <div class="feature-card"><div class="feature-icon"><i class="fas fa-network-wired"></i></div><h3>Agent Orchestration</h3><p>Build multi-agent systems that collaborate on complex workflows.</p></div>
+                <div class="feature-card"><div class="feature-icon"><i class="fas fa-chart-line"></i></div><h3>Predictive Analytics</h3><p>Forecast trends, detect anomalies, and optimize operations with 94% accuracy.</p></div>
+                <div class="feature-card"><div class="feature-icon"><i class="fas fa-shield-alt"></i></div><h3>Enterprise Security</h3><p>GDPR, SOC2 Type II, HIPAA-ready with end-to-end encryption.</p></div>
             </div>
         </div>
     </section>
 
-    <section id="calm">
+    <!-- Blog Section -->
+    <section id="blog">
         <div class="container">
-            <div class="soothe-row">
-                <div class="soothe-cell"><i class="fas fa-feather-alt" style="font-size: 2rem; color:#c45a2e;"></i><h3 style="margin: 1rem 0 0.5rem;">Feather-soft</h3><p>Blazing fast, gentle touch</p></div>
-                <div class="soothe-cell"><i class="fas fa-globe" style="font-size: 2rem; color:#c45a2e;"></i><h3 style="margin: 1rem 0 0.5rem;">54 languages</h3><p>Global lullaby glow</p></div>
-                <div class="soothe-cell"><i class="fas fa-shield-heart" style="font-size: 2rem; color:#c45a2e;"></i><h3 style="margin: 1rem 0 0.5rem;">Yours always</h3><p>Never trained on</p></div>
-                <div class="soothe-cell"><i class="fas fa-moon" style="font-size: 2rem; color:#c45a2e;"></i><h3 style="margin: 1rem 0 0.5rem;">Soothe by soul</h3><p>Built with empathy</p></div>
+            <h2 class="section-title">Latest insights</h2>
+            <p class="section-sub">Research, engineering, and AI trends from our team</p>
+            <div class="blog-grid">
+                <div class="blog-card">
+                    <div class="blog-img"><i class="fas fa-file-alt"></i></div>
+                    <div class="blog-content">
+                        <div class="blog-tag">Engineering</div>
+                        <h3>Building reliable RAG systems at scale</h3>
+                        <p>Lessons learned from production deployments across 50+ enterprises.</p>
+                        <div class="blog-meta">May 20, 2025 · 6 min read</div>
+                    </div>
+                </div>
+                <div class="blog-card">
+                    <div class="blog-img"><i class="fas fa-chart-simple"></i></div>
+                    <div class="blog-content">
+                        <div class="blog-tag">Research</div>
+                        <h3>New benchmarks for agentic evaluation</h3>
+                        <p>How we measure real-world agent performance and reliability.</p>
+                        <div class="blog-meta">May 15, 2025 · 8 min read</div>
+                    </div>
+                </div>
+                <div class="blog-card">
+                    <div class="blog-img"><i class="fas fa-lock"></i></div>
+                    <div class="blog-content">
+                        <div class="blog-tag">Security</div>
+                        <h3>LLM security: prompt injection and guardrails</h3>
+                        <p>Best practices for securing production AI systems.</p>
+                        <div class="blog-meta">May 10, 2025 · 5 min read</div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
+    <!-- Pricing Section -->
     <section id="pricing">
         <div class="container">
-            <div class="section-header">
-                <h2>Gentle plans for every rest</h2>
-                <p>Pricing as soft as a lullaby</p>
-            </div>
+            <h2 class="section-title">Flexible plans</h2>
+            <p class="section-sub">Start free, scale as you grow. No hidden fees.</p>
             <div class="pricing-grid">
-                <div class="price-card"><h3>Whisper</h3><div class="price-number">$0</div><p>300 messages/month, basic soothe, community peace.</p>
-                    <a href="#" class="btn-outline" style="margin-top:1.5rem; display:inline-block;" onclick="openModal()">Hear whisper</a>
+                <div class="pricing-card">
+                    <h3>Developer</h3>
+                    <div class="price">$0<span>/month</span></div>
+                    <p>10K API calls, community support</p>
+                    <ul>
+                        <li><i class="fas fa-check"></i> 10K API calls/month</li>
+                        <li><i class="fas fa-check"></i> Core models access</li>
+                        <li><i class="fas fa-check"></i> Community support</li>
+                        <li><i class="fas fa-check"></i> Basic analytics</li>
+                    </ul>
+                    <a href="#" class="btn-outline" style="display: block; text-align: center;">Get started</a>
                 </div>
-                <div class="price-card featured"><h3>Lullaby <span style="background:#ffe0cc; font-size:0.7rem; padding:0.2rem 0.6rem; border-radius:40px;">🎵 Most soothing</span></h3><div class="price-number">$9<span style="font-size:1rem;">/mo</span></div><p>Unlimited messages, priority lullaby, full API.</p>
-                    <a href="#" class="btn-primary" onclick="openModal()">Rest in lullaby</a>
+                <div class="pricing-card featured">
+                    <h3>Pro</h3>
+                    <div class="price">$79<span>/month</span></div>
+                    <p>500K API calls, priority support</p>
+                    <ul>
+                        <li><i class="fas fa-check"></i> 500K API calls/month</li>
+                        <li><i class="fas fa-check"></i> Advanced models</li>
+                        <li><i class="fas fa-check"></i> Priority 24/7 support</li>
+                        <li><i class="fas fa-check"></i> Custom fine-tuning</li>
+                        <li><i class="fas fa-check"></i> Advanced analytics</li>
+                    </ul>
+                    <a href="#" class="btn-primary" style="display: block; text-align: center;">Start trial</a>
                 </div>
-                <div class="price-card"><h3>Twilight</h3><div class="price-number">$25<span style="font-size:1rem;">/mo</span></div><p>Team features, analytics, custom soothe.</p>
-                    <a href="#" class="btn-outline" onclick="openModal()">Enter twilight</a>
+                <div class="pricing-card">
+                    <h3>Enterprise</h3>
+                    <div class="price">Custom</div>
+                    <p>Unlimited, on-prem, dedicated support</p>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Unlimited API calls</li>
+                        <li><i class="fas fa-check"></i> On-prem / VPC deployment</li>
+                        <li><i class="fas fa-check"></i> Custom SLA</li>
+                        <li><i class="fas fa-check"></i> Dedicated support team</li>
+                        <li><i class="fas fa-check"></i> SOC2 / HIPAA compliant</li>
+                    </ul>
+                    <a href="#" class="btn-outline" style="display: block; text-align: center;">Contact sales</a>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- CTA Section -->
     <div class="container">
         <div class="cta-section">
-            <h2 style="font-size: 2rem;">Let gentle lullaby rest your mind</h2>
-            <p style="margin: 1rem 0 2rem; opacity: 0.85;">Join thousands who've found soft, soothing intelligence with Lullaby.</p>
-            <a href="#" class="btn-primary" onclick="openModal()"><i class="fas fa-moon"></i> Start your lullaby trial</a>
+            <h2>Ready to transform with AI?</h2>
+            <p style="opacity: 0.8;">Join 350+ enterprises already using Pulse AI.</p>
+            <a href="#" class="btn-primary">Start free trial →</a>
         </div>
     </div>
 
+    <!-- Privacy Policy Section -->
     <div class="container" id="privacy">
-        <div class="privacy-section">
-            <h2><i class="fas fa-leaf" style="color:#f5a06b;"></i> Sacred Lullaby — Our Soothing Vow</h2>
-            <p><strong>Last gentle song:</strong> May 2025 | Lullaby Labs holds your trust as soft as evening song.</p>
+        <div class="privacy-block">
+            <h2><i class="fas fa-shield-alt" style="color: var(--peach);"></i> Privacy Policy</h2>
+            <p><strong>Effective Date:</strong> May 2025 | <strong>Last Updated:</strong> May 21, 2025</p>
+            <p>At Pulse AI ("we," "our"), your privacy is fundamental to our mission. This Privacy Policy explains how we handle your information.</p>
             
-            <h3>1. What we gather</h3>
-            <p>Account essence, conversation lullaby (encrypted at rest), and gentle usage echoes. You remain the sole owner of your soothing light.</p>
+            <h3>1. Information We Collect</h3>
+            <p><strong>Account Data:</strong> Name, email address, billing information, and account preferences. <strong>Usage Data:</strong> API request logs, model inputs/outputs metadata, and feature usage patterns. <strong>Feedback:</strong> Optional survey responses and support communications.</p>
             
-            <h3>2. How your light is honoured</h3>
-            <p>To nurture our AI, personalise your journey, handle billing, and support you. Zero selling. Zero advertising training. Zero dark patterns.</p>
+            <h3>2. How We Use Your Information</h3>
+            <p>To provide and maintain our Service, improve model accuracy and platform performance, process payments, send important updates, and comply with legal obligations. We never sell your personal data to third parties.</p>
             
-            <h3>3. Keeping your lullaby safe</h3>
-            <p>You may delete any conversation instantly. Account data vanishes when you wish. Full gentle export available anytime.</p>
+            <h3>3. Data Retention & Security</h3>
+            <p>We retain personal data for as long as your account is active. You may delete your account at any time. Industry-standard encryption (TLS 1.3, AES-256) protects data in transit and at rest.</p>
             
-            <h3>4. Trusted guardians</h3>
-            <p>We partner with secure infrastructure providers under strict data pledges. All data travels encrypted and rests encrypted.</p>
+            <h3>4. Third-Party Services</h3>
+            <p>We use trusted partners for cloud infrastructure (AWS, Google Cloud), payment processing (Stripe), and analytics. All partners comply with GDPR/CCPA requirements.</p>
             
-            <h3>5. Your soothing rights</h3>
-            <p>Access, correct, delete, restrict, or take your data elsewhere. Our privacy team is always here for you.</p>
+            <h3>5. Your Privacy Rights (GDPR / CCPA)</h3>
+            <p>You have the right to access, correct, delete, or restrict processing of your data. Contact <strong>privacy@pulse.ai</strong> to exercise these rights.</p>
             
-            <h3>6. Young souls</h3>
-            <p>Lullaby is crafted for humans 16 and over. We do not knowingly collect from younger hearts.</p>
+            <h3>6. Cookies & Tracking</h3>
+            <p>We use essential cookies for authentication. No invasive tracking. You can manage cookie preferences via your browser.</p>
             
-            <h3>7. Across borders</h3>
-            <p>Data may travel the globe under Standard Contractual Clauses — always protected, always respected.</p>
+            <h3>7. Children's Privacy</h3>
+            <p>Our services are not directed to individuals under 16. We do not knowingly collect data from minors.</p>
             
-            <h3>8. When lullaby evolves</h3>
-            <p>Material changes will be shared with you. Our Data Protection Officer is always available.</p>
-            <p style="margin-top:1.5rem;"><i class="fas fa-moon" style="color:#f5a06b;"></i> Lullaby — Intelligence that sings gently to you.</p>
+            <h3>8. International Data Transfers</h3>
+            <p>Data may be processed in the US, EU, or other jurisdictions. We implement Standard Contractual Clauses (SCCs) for international transfers.</p>
+            
+            <h3>9. Changes to This Policy</h3>
+            <p>We may update this Privacy Policy periodically. Material changes will be notified via email or on our website.</p>
+            
+            <p><strong>Contact Us:</strong> Data Protection Officer at <strong>dpo@pulse.ai</strong> or mail: Pulse AI, 101 Tech Hub, San Francisco, CA 94105.</p>
+            <p style="margin-top: 1rem;"><i class="fas fa-check-circle" style="color: var(--peach);"></i> Pulse AI — building responsible intelligence.</p>
         </div>
     </div>
 </main>
 
+<!-- Footer -->
 <footer>
     <div class="container">
-        <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2rem;">
-            <div>
-                <h3 style="color:#3d2b1d;">Lullaby<span style="color:#f5a06b;">🎵</span></h3>
-                <p style="max-width: 210px; margin-top: 0.5rem;">Your gentle song of wisdom.</p>
-                <div style="margin-top: 1rem;">
-                    <a href="#" onclick="openModal(); return false;" style="color:#b08066; margin-right: 1rem;"><i class="fab fa-twitter"></i></a>
-                    <a href="#" onclick="openModal(); return false;" style="color:#b08066; margin-right: 1rem;"><i class="fab fa-instagram"></i></a>
-                    <a href="#" onclick="openModal(); return false;" style="color:#b08066;"><i class="fab fa-spotify"></i></a>
-                </div>
-            </div>
-            <div>
-                <h4>Soothe</h4>
-                <p><a href="#soothe" style="color:#b08066; text-decoration:none;">Features</a><br>
-                   <a href="#pricing" style="color:#b08066; text-decoration:none;">Pricing</a><br>
-                   <a href="#" onclick="openModal(); return false;" style="color:#b08066;">API</a><br>
-                   <a href="#" onclick="openModal(); return false;" style="color:#b08066;">Status</a></p>
-            </div>
-            <div>
-                <h4>Resources</h4>
-                <p><a href="#" onclick="openModal(); return false;" style="color:#b08066;">Journal</a><br>
-                   <a href="#" onclick="openModal(); return false;" style="color:#b08066;">Guide</a><br>
-                   <a href="#" onclick="openModal(); return false;" style="color:#b08066;">Community</a><br>
-                   <a href="#" onclick="openModal(); return false;" style="color:#b08066;">Support</a></p>
-            </div>
-            <div>
-                <h4>Trust</h4>
-                <p><a href="#privacy" style="color:#b08066; text-decoration:none;">Privacy Vow</a><br>
-                   <a href="#" onclick="openModal(); return false;" style="color:#b08066;">Terms of Lullaby</a><br>
-                   <a href="#" onclick="openModal(); return false;" style="color:#b08066;">Ethics Charter</a><br>
-                   <a href="#" onclick="openModal(); return false;" style="color:#b08066;">Security</a></p>
-            </div>
+        <div class="footer-grid">
+            <div><h4>Pulse<span style="color:#f97316;">AI</span></h4><p>Enterprise AI platform</p><div style="margin-top:0.5rem;">© 2025</div></div>
+            <div><h4>Product</h4><p><a href="#features">Features</a></p><p><a href="#pricing">Pricing</a></p><p>API Docs</p><p>Status</p></div>
+            <div><h4>Resources</h4><p><a href="#blog">Blog</a></p><p>Documentation</p><p>Support</p><p>Community</p></div>
+            <div><h4>Legal</h4><p><a href="#privacy">Privacy Policy</a></p><p>Terms of Service</p><p>Security</p><p>Compliance</p></div>
         </div>
-        <div style="text-align: center; padding-top: 2rem; border-top: 1px solid #ffe0cc; margin-top: 2rem; font-size: 0.8rem;">
-            <p>© 2025 Lullaby Labs — Intelligence that sings gently to you.</p>
-            <p style="margin-top: 0.5rem;">Soothed in trust · Resting in grace</p>
+        <div style="border-top: 1px solid #334155; padding-top: 1.5rem; text-align: center; font-size: 0.75rem;">
+            Built for the enterprise. Trusted by industry leaders.
         </div>
     </div>
 </footer>
 
-<a href="#" class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'}); return false;"><i class="fas fa-arrow-up"></i></a>
+<a href="#" class="back-to-top"><i class="fas fa-arrow-up"></i></a>
 
 <script>
-    function openModal() {
-        document.getElementById('demoModal').style.display = 'flex';
-    }
-    function closeModal() {
-        document.getElementById('demoModal').style.display = 'none';
-    }
-    window.onclick = function(event) {
-        let modal = document.getElementById('demoModal');
-        if (event.target === modal) modal.style.display = 'none';
-    }
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             const href = this.getAttribute('href');
@@ -674,11 +697,6 @@
             }
         });
     });
-    document.querySelector('.back-to-top').addEventListener('click', function(e) {
-        e.preventDefault();
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
 </script>
-    <script src="protection.js"></script>
 </body>
 </html>
