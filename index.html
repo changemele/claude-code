@@ -3,435 +3,114 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Orbital AI · Next‑Generation Intelligence</title>
+    <title>Lumina AI · The Intelligence Weaver</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: #ffffff; color: #111827; line-height: 1.5; scroll-behavior: smooth; opacity: 0; transition: opacity 0.3s ease; }
+        body.loaded { opacity: 1; }
 
-        /* Preloader */
-        .preloader {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: #ffffff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 9999;
-            transition: opacity 0.3s ease;
-        }
-        .preloader.hidden {
-            opacity: 0;
-            pointer-events: none;
-        }
-        .preloader-spinner {
-            width: 44px;
-            height: 44px;
-            border: 3px solid #fef3c7;
-            border-top-color: #f59e0b;
-            border-radius: 50%;
-            animation: spin 0.6s linear infinite;
-        }
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background: #ffffff;
-            color: #111827;
-            line-height: 1.5;
-            scroll-behavior: smooth;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-        body.loaded {
-            opacity: 1;
-        }
+        .preloader { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #ffffff; display: flex; align-items: center; justify-content: center; z-index: 9999; transition: opacity 0.3s ease; }
+        .preloader.hidden { opacity: 0; pointer-events: none; }
+        .preloader-spinner { width: 44px; height: 44px; border: 3px solid #fef3c7; border-top-color: #f97316; border-radius: 50%; animation: spin 0.6s linear infinite; }
+        @keyframes spin { to { transform: rotate(360deg); } }
 
         :root {
-            --peach: #f59e0b;
-            --peach-dark: #d97706;
-            --peach-deep: #b45309;
-            --peach-soft: #fde68a;
-            --peach-bg: #fffbeb;
-            --peach-muted: #fef3c7;
+            --peach: #f97316;
+            --peach-dark: #ea580c;
+            --peach-soft: #fed7aa;
+            --peach-bg: #fff7ed;
+            --peach-muted: #ffedd5;
             --border: #e5e7eb;
             --text-muted: #6b7280;
             --radius: 28px;
             --radius-sm: 18px;
         }
-
-        .container {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 32px;
-        }
-
-        /* Navigation */
-        .navbar {
-            background: rgba(255,255,255,0.96);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--border);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        .nav-wrapper {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 0;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-        .logo {
-            font-size: 1.6rem;
-            font-weight: 700;
-            color: #111827;
-        }
-        .logo span {
-            color: var(--peach);
-        }
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-        .nav-links a {
-            text-decoration: none;
-            font-weight: 500;
-            color: #4b5563;
-            transition: 0.2s;
-        }
-        .nav-links a:hover {
-            color: var(--peach);
-        }
-        .btn-primary {
-            background: var(--peach);
-            padding: 0.6rem 1.5rem;
-            border-radius: 100px;
-            color: white;
-            font-weight: 600;
-            text-decoration: none;
-            transition: 0.2s;
-            display: inline-block;
-        }
-        .btn-primary:hover {
-            background: var(--peach-dark);
-            transform: translateY(-2px);
-        }
-        .btn-outline {
-            border: 1px solid var(--border);
-            padding: 0.6rem 1.5rem;
-            border-radius: 100px;
-            background: white;
-            font-weight: 500;
-            text-decoration: none;
-            color: #111827;
-            display: inline-block;
-        }
-        .btn-outline:hover {
-            border-color: var(--peach);
-            background: var(--peach-bg);
-        }
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 32px; }
+        
+        .navbar { background: rgba(255,255,255,0.96); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; }
+        .nav-wrapper { display: flex; justify-content: space-between; align-items: center; padding: 1rem 0; flex-wrap: wrap; gap: 1rem; }
+        .logo { font-size: 1.6rem; font-weight: 700; color: #111827; }
+        .logo span { color: var(--peach); }
+        .nav-links { display: flex; gap: 2rem; align-items: center; flex-wrap: wrap; }
+        .nav-links a { text-decoration: none; font-weight: 500; color: #4b5563; transition: 0.2s; }
+        .nav-links a:hover { color: var(--peach); }
+        .btn-primary { background: var(--peach); padding: 0.6rem 1.5rem; border-radius: 100px; color: white; font-weight: 600; text-decoration: none; transition: 0.2s; display: inline-block; }
+        .btn-primary:hover { background: var(--peach-dark); transform: translateY(-2px); }
+        .btn-outline { border: 1px solid var(--border); padding: 0.6rem 1.5rem; border-radius: 100px; background: white; font-weight: 500; text-decoration: none; color: #111827; display: inline-block; }
+        .btn-outline:hover { border-color: var(--peach); background: var(--peach-bg); }
 
         /* Hero */
-        .hero {
-            padding: 4rem 0 5rem;
-            background: linear-gradient(125deg, var(--peach-bg) 0%, #ffffff 65%);
-        }
-        .hero-grid {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: 3rem;
-        }
-        .hero-content {
-            flex: 1;
-        }
-        .hero-badge {
-            background: var(--peach-soft);
-            color: var(--peach-dark);
-            border-radius: 100px;
-            padding: 0.25rem 1rem;
-            font-size: 0.75rem;
-            font-weight: 600;
-            display: inline-block;
-            margin-bottom: 1rem;
-        }
-        .hero-content h1 {
-            font-size: 3rem;
-            font-weight: 700;
-            line-height: 1.2;
-            margin-bottom: 1rem;
-        }
-        .hero-highlight {
-            color: var(--peach);
-        }
-        .hero-content p {
-            font-size: 1.1rem;
-            color: var(--text-muted);
-            max-width: 90%;
-            margin-bottom: 1.5rem;
-        }
-        .hero-image {
-            flex: 1;
-            text-align: center;
-        }
-        .hero-image img {
-            max-width: 100%;
-            border-radius: var(--radius);
-        }
+        .hero { padding: 5rem 0; background: linear-gradient(125deg, var(--peach-bg) 0%, #ffffff 65%); text-align: center; }
+        .hero h1 { font-size: 3.5rem; font-weight: 800; line-height: 1.2; max-width: 800px; margin: 0 auto 1rem; letter-spacing: -0.02em; }
+        .hero-highlight { color: var(--peach); }
+        .hero p { font-size: 1.2rem; color: var(--text-muted); max-width: 600px; margin: 0 auto 2rem; }
+        .hero-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
 
-        /* Problem Section */
-        .problem-section {
-            background: #fef2f2;
-            padding: 4rem 0;
-        }
-        .problem-box {
-            background: white;
-            border-radius: var(--radius);
-            padding: 2rem;
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto;
-            border-left: 4px solid #ef4444;
-        }
-        .solution-box {
-            background: white;
-            border-radius: var(--radius);
-            padding: 2rem;
-            text-align: center;
-            max-width: 800px;
-            margin: 2rem auto 0;
-            border-left: 4px solid var(--peach);
-        }
+        /* 4 vertical cards */
+        .vert-cards { padding: 5rem 0; }
+        .vert-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
+        .vert-item { background: white; border-radius: var(--radius-sm); padding: 2rem; border: 1px solid var(--border); text-align: center; transition: 0.2s; }
+        .vert-item:hover { transform: translateY(-6px); border-color: var(--peach-soft); box-shadow: 0 20px 30px -12px rgba(0,0,0,0.08); }
+        .vert-icon { width: 64px; height: 64px; background: var(--peach-bg); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; }
+        .vert-icon i { font-size: 1.8rem; color: var(--peach); }
 
-        /* How It Works */
-        .how-section {
-            padding: 5rem 0;
-        }
-        .steps {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 2rem;
-            justify-content: center;
-            margin-top: 3rem;
-        }
-        .step {
-            flex: 1;
-            min-width: 250px;
-            text-align: center;
-            padding: 2rem;
-            background: var(--peach-bg);
-            border-radius: var(--radius-sm);
-        }
-        .step-number {
-            width: 48px;
-            height: 48px;
-            background: var(--peach);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1rem;
-            font-weight: 700;
-            font-size: 1.2rem;
-        }
+        /* Video preview */
+        .video-preview { padding: 4rem 0; background: var(--peach-bg); }
+        .video-box { max-width: 900px; margin: 0 auto; background: #1e293b; border-radius: var(--radius); padding: 4rem 2rem; text-align: center; cursor: pointer; transition: 0.2s; }
+        .video-box:hover { background: var(--peach-dark); }
+        .video-box i { font-size: 4rem; color: white; margin-bottom: 1rem; display: block; }
 
-        /* Comparison Table */
-        .comparison-section {
-            background: var(--peach-bg);
-            padding: 5rem 0;
-        }
-        .comparison-table {
-            width: 100%;
-            border-collapse: collapse;
-            background: white;
-            border-radius: var(--radius);
-            overflow: hidden;
-        }
-        .comparison-table th, .comparison-table td {
-            padding: 1rem;
-            text-align: left;
-            border-bottom: 1px solid var(--border);
-        }
-        .comparison-table th {
-            background: var(--peach);
-            color: white;
-        }
-        .check { color: var(--peach); }
-        .times { color: #ef4444; }
+        /* Numbers grid */
+        .numbers { padding: 4rem 0; background: white; }
+        .numbers-flex { display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center; text-align: center; }
+        .number-stat h3 { font-size: 2.8rem; font-weight: 800; color: var(--peach); }
+        .number-stat p { color: var(--text-muted); font-size: 0.9rem; }
 
-        /* Testimonials */
-        .testimonials-section {
-            padding: 5rem 0;
-        }
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-        .testimonial {
-            background: var(--peach-bg);
-            padding: 2rem;
-            border-radius: var(--radius-sm);
-            border: 1px solid var(--peach-soft);
-        }
+        /* Horizontal blog scroll */
+        .blog-scroll { padding: 5rem 0; background: #f9fafb; }
+        .scroll-horiz { display: flex; gap: 1.5rem; overflow-x: auto; padding-bottom: 1rem; }
+        .scroll-card { min-width: 320px; background: white; border-radius: var(--radius-sm); padding: 1.5rem; border: 1px solid var(--border); transition: 0.2s; }
+        .scroll-card:hover { transform: translateY(-4px); border-color: var(--peach-soft); }
+        .scroll-tag { font-size: 0.7rem; color: var(--peach); text-transform: uppercase; letter-spacing: 1px; }
+        .scroll-card h3 { margin: 0.5rem 0; font-size: 1.2rem; }
 
-        /* FAQ Accordion */
-        .faq-section {
-            background: #f9fafb;
-            padding: 5rem 0;
-        }
-        .faq-item {
-            background: white;
-            border-radius: var(--radius-sm);
-            margin-bottom: 1rem;
-            overflow: hidden;
-            border: 1px solid var(--border);
-        }
-        .faq-question {
-            padding: 1.2rem 1.5rem;
-            font-weight: 600;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .faq-question:hover {
-            background: var(--peach-bg);
-        }
-        .faq-answer {
-            padding: 0 1.5rem 1.2rem 1.5rem;
-            color: var(--text-muted);
-            display: none;
-        }
-        .faq-answer.active {
-            display: block;
-        }
-
-        /* Blog Compact */
-        .blog-compact {
-            padding: 5rem 0;
-        }
-        .blog-compact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-        .blog-compact-card {
-            background: white;
-            border-radius: var(--radius-sm);
-            overflow: hidden;
-            border: 1px solid var(--border);
-        }
-        .blog-compact-img {
-            background: var(--peach-muted);
-            height: 140px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            color: var(--peach);
-        }
-        .blog-compact-content {
-            padding: 1.2rem;
-        }
-
-        /* Pricing Simplified */
-        .pricing-simple {
-            padding: 5rem 0;
-        }
-        .pricing-simple-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 2rem;
-            justify-content: center;
-        }
-        .pricing-simple-card {
-            background: white;
-            border-radius: var(--radius);
-            flex: 1;
-            min-width: 260px;
-            padding: 2rem;
-            border: 1px solid var(--border);
-            text-align: center;
-        }
-        .pricing-simple-card.featured {
-            border-top: 3px solid var(--peach);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
-        }
+        /* Pricing */
+        .pricing-section { padding: 5rem 0; }
+        .pricing-grid { display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center; }
+        .pricing-card { background: white; border-radius: var(--radius); flex: 1; min-width: 280px; padding: 2rem; border: 1px solid var(--border); text-align: center; transition: 0.2s; position: relative; }
+        .pricing-card.featured { border-top: 4px solid var(--peach); box-shadow: 0 8px 20px rgba(0,0,0,0.05); transform: scale(1.02); }
+        .badge-popular { position: absolute; top: -12px; right: 20px; background: var(--peach); color: white; font-size: 0.7rem; padding: 0.2rem 0.8rem; border-radius: 100px; }
+        .price { font-size: 2.8rem; font-weight: 800; color: var(--peach); margin: 1rem 0; }
+        .price span { font-size: 0.9rem; font-weight: 400; color: var(--text-muted); }
 
         /* Privacy */
-        .privacy-block {
-            background: white;
-            border-radius: var(--radius-sm);
-            padding: 2rem;
-            margin: 2rem 0;
-            border: 1px solid var(--border);
-            scroll-margin-top: 80px;
-        }
-        .privacy-block h2, .privacy-block h3 {
-            margin-top: 1.5rem;
-            margin-bottom: 0.75rem;
-        }
+        .privacy-block { background: white; border-radius: var(--radius-sm); padding: 2rem; margin: 2rem 0; border: 1px solid var(--border); scroll-margin-top: 80px; }
+        .privacy-block h2, .privacy-block h3 { margin-top: 1.5rem; margin-bottom: 0.75rem; }
         .privacy-block h2:first-child { margin-top: 0; }
         .privacy-block p, .privacy-block li { color: var(--text-muted); font-size: 0.9rem; }
 
-        /* Footer */
-        footer {
-            background: #0f172a;
-            color: #94a3b8;
-            padding: 3rem 0 2rem;
-        }
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-        .footer-grid a {
-            color: #94a3b8;
-            text-decoration: none;
-            font-size: 0.85rem;
-            display: block;
-            margin-bottom: 0.5rem;
-        }
-        .footer-grid a:hover { color: var(--peach); }
-        .back-to-top {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            background: var(--peach);
-            color: white;
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            transition: 0.2s;
-            z-index: 99;
-        }
+        /* Footer 2 columns */
+        footer { background: #0f172a; color: #94a3b8; padding: 3rem 0 2rem; }
+        .footer-two { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 3rem; margin-bottom: 2rem; }
+        .footer-brand { max-width: 300px; }
+        .footer-brand h3 { color: white; margin-bottom: 0.5rem; }
+        .footer-links { display: flex; flex-wrap: wrap; gap: 3rem; }
+        .footer-links-col h4 { color: white; margin-bottom: 1rem; }
+        .footer-links-col a { color: #94a3b8; text-decoration: none; display: block; margin-bottom: 0.5rem; font-size: 0.85rem; }
+        .footer-links-col a:hover { color: var(--peach); }
+        .social-icons { display: flex; gap: 1rem; margin-top: 1rem; }
+        .social-icons a { color: #94a3b8; font-size: 1.2rem; }
+        .social-icons a:hover { color: var(--peach); }
+        .back-to-top { position: fixed; bottom: 2rem; right: 2rem; background: var(--peach); color: white; width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: 0.2s; z-index: 99; }
         .back-to-top:hover { background: var(--peach-dark); transform: translateY(-3px); }
 
         @media (max-width: 768px) {
             .container { padding: 0 20px; }
-            .hero-content h1 { font-size: 2rem; }
+            .hero h1 { font-size: 2.2rem; }
             .nav-wrapper { flex-direction: column; }
+            .footer-two { flex-direction: column; }
         }
     </style>
 </head>
@@ -441,14 +120,14 @@
 
 <nav class="navbar">
     <div class="container nav-wrapper">
-        <div class="logo">Orbital<span>AI</span></div>
+        <div class="logo">Lumina<span>AI</span></div>
         <div class="nav-links">
             <a href="#home">Home</a>
-            <a href="#how">How it works</a>
-            <a href="#faq">FAQ</a>
+            <a href="#features">Explore</a>
+            <a href="#blog">Read</a>
             <a href="#pricing">Pricing</a>
-            <a href="#privacy">Privacy</a>
-            <a href="#" class="btn-primary">Get started</a>
+            <a href="#privacy">Legal</a>
+            <a href="#" class="btn-primary">Start free →</a>
         </div>
     </div>
 </nav>
@@ -456,143 +135,117 @@
 <main>
     <!-- Hero -->
     <section id="home" class="hero">
-        <div class="container hero-grid">
-            <div class="hero-content">
-                <div class="hero-badge">Launching May 2025</div>
-                <h1>AI that <span class="hero-highlight">understands context</span> like never before</h1>
-                <p>Orbital AI processes long documents, remembers conversations, and adapts to your workflow — not the other way around.</p>
-                <a href="#" class="btn-primary">Join waitlist →</a>
-            </div>
-            <div class="hero-image">
-                <img src="https://placehold.co/550x450/1e293b/ffffff?text=Contextual+AI&font=inter" alt="Orbital AI">
+        <div class="container">
+            <h1><span class="hero-highlight">Weave</span> knowledge into answers</h1>
+            <p>Lumina connects your scattered documents, messages, and data into one intelligent layer. Ask anything. Get answers instantly.</p>
+            <div class="hero-buttons">
+                <a href="#" class="btn-primary">Try Lumina free →</a>
+                <a href="#" class="btn-outline">Book a demo</a>
             </div>
         </div>
     </section>
 
-    <!-- Problem → Solution -->
-    <div class="problem-section">
+    <!-- 4 vertical cards -->
+    <section id="features" class="vert-cards">
         <div class="container">
-            <div class="problem-box">
-                <i class="fas fa-exclamation-triangle" style="font-size: 2rem; color: #ef4444; margin-bottom: 1rem; display: block;"></i>
-                <h3 style="margin-bottom: 0.5rem;">The problem</h3>
-                <p style="color: #6b7280;">Most AI models forget what you told them after a few messages. They can't reference long documents or maintain consistent memory across sessions.</p>
+            <div class="vert-grid">
+                <div class="vert-item"><div class="vert-icon"><i class="fas fa-search"></i></div><h3>Unified search</h3><p>Search across Slack, Notion, GDrive, and 30+ other tools from one place.</p></div>
+                <div class="vert-item"><div class="vert-icon"><i class="fas fa-memory"></i></div><h3>Persistent memory</h3><p>Lumina remembers what you asked weeks ago. Build on previous conversations.</p></div>
+                <div class="vert-item"><div class="vert-icon"><i class="fas fa-chart-line"></i></div><h3>Knowledge graphs</h3><p>See how ideas, documents, and people connect across your organization.</p></div>
+                <div class="vert-item"><div class="vert-icon"><i class="fas fa-shield-alt"></i></div><h3>Enterprise grade</h3><p>SOC2, GDPR, HIPAA ready. Your data never leaves your control.</p></div>
             </div>
-            <div class="solution-box">
-                <i class="fas fa-lightbulb" style="font-size: 2rem; color: var(--peach); margin-bottom: 1rem; display: block;"></i>
-                <h3 style="margin-bottom: 0.5rem;">Our solution</h3>
-                <p style="color: #6b7280;">Orbital's persistent memory layer retains context indefinitely. Upload 1,000-page documents — our AI reads them all and answers questions with precision.</p>
+        </div>
+    </section>
+
+    <!-- Video preview -->
+    <div class="video-preview">
+        <div class="container">
+            <div class="video-box" onclick="alert('Product demo would play here')">
+                <i class="fas fa-play-circle"></i>
+                <p>See Lumina in action (90 sec demo)</p>
+                <span style="font-size: 0.8rem; opacity: 0.7;">▶ Click to watch</span>
             </div>
         </div>
     </div>
 
-    <!-- How It Works (3 steps) -->
-    <section id="how" class="how-section">
+    <!-- Numbers -->
+    <div class="numbers">
         <div class="container">
-            <h2 class="section-title">How Orbital works</h2>
-            <p class="section-sub">Three simple steps to supercharged AI</p>
-            <div class="steps">
-                <div class="step"><div class="step-number">1</div><h3>Connect</h3><p>Link your data sources — documents, emails, databases, or APIs.</p></div>
-                <div class="step"><div class="step-number">2</div><h3>Train</h3><p>Our models index and learn your unique context automatically.</p></div>
-                <div class="step"><div class="step-number">3</div><h3>Interact</h3><p>Ask questions, generate content, or automate workflows instantly.</p></div>
+            <div class="numbers-flex">
+                <div class="number-stat"><h3>87%</h3><p>faster find time</p></div>
+                <div class="number-stat"><h3>50+</h3><p>integrations</p></div>
+                <div class="number-stat"><h3>2.5M</h3><p>documents indexed</p></div>
             </div>
-        </div>
-    </section>
-
-    <!-- Comparison Table -->
-    <div class="comparison-section">
-        <div class="container">
-            <h2 class="section-title">Why Orbital stands out</h2>
-            <table class="comparison-table">
-                <thead>
-                    <tr><th>Feature</th><th>Orbital AI</th><th>ChatGPT</th><th>Claude</th></tr>
-                </thead>
-                <tbody>
-                    <tr><td>1M+ token context</td><td class="check"><i class="fas fa-check"></i> Yes</td><td class="times"><i class="fas fa-times"></i> No</td><td class="check"><i class="fas fa-check"></i> Yes</td></tr>
-                    <tr><td>Persistent memory across sessions</td><td class="check"><i class="fas fa-check"></i> Yes</td><td class="times"><i class="fas fa-times"></i> No</td><td class="times"><i class="fas fa-times"></i> No</td></tr>
-                    <tr><td>On‑premise deployment</td><td class="check"><i class="fas fa-check"></i> Yes</td><td class="times"><i class="fas fa-times"></i> No</td><td class="times"><i class="fas fa-times"></i> No</td></tr>
-                    <tr><td>Custom fine‑tuning</td><td class="check"><i class="fas fa-check"></i> Yes</td><td class="check"><i class="fas fa-check"></i> Limited</td><td class="check"><i class="fas fa-check"></i> Limited</td></tr>
-                    <tr><td>GDPR compliant</td><td class="check"><i class="fas fa-check"></i> Yes</td><td class="check"><i class="fas fa-check"></i> Yes</td><td class="check"><i class="fas fa-check"></i> Yes</td></tr>
-                </tbody>
-            </table>
         </div>
     </div>
 
-    <!-- Testimonials -->
-    <section class="testimonials-section">
+    <!-- Horizontal blog scroll -->
+    <section id="blog" class="blog-scroll">
         <div class="container">
-            <h2 class="section-title">Trusted by early adopters</h2>
-            <div class="testimonials-grid">
-                <div class="testimonial"><i class="fas fa-star" style="color: var(--peach); margin-bottom: 0.5rem; display: block;"></i><p>"Orbital's memory feature changed how we handle customer support. Our agents remember every interaction."</p><p style="margin-top: 1rem; font-weight: 600;">— Sarah Chen, Support Lead</p></div>
-                <div class="testimonial"><i class="fas fa-star" style="color: var(--peach); margin-bottom: 0.5rem; display: block;"></i><p>"We uploaded 500 pages of technical docs. Orbital answered every question correctly. Game changer."</p><p style="margin-top: 1rem; font-weight: 600;">— Marcus Cole, CTO</p></div>
-                <div class="testimonial"><i class="fas fa-star" style="color: var(--peach); margin-bottom: 0.5rem; display: block;"></i><p>"Finally an AI that stays on brand. Our marketing team uses it daily for content drafts."</p><p style="margin-top: 1rem; font-weight: 600;">— Elena Voss, Marketing</p></div>
+            <h2 style="font-size: 2rem; text-align: center; margin-bottom: 2rem;">From the Lumina team</h2>
+            <div class="scroll-horiz">
+                <div class="scroll-card"><div class="scroll-tag">Research</div><h3>Building persistent memory for AI</h3><p>How we solved context retention across weeks of conversations.</p><div style="margin-top: 1rem; font-size: 0.8rem; color: var(--text-muted);">May 19, 2025 · 8 min read</div></div>
+                <div class="scroll-card"><div class="scroll-tag">Case Study</div><h3>How a law firm saved 200 hours monthly</h3><p>Document discovery and research accelerated with Lumina.</p><div style="margin-top: 1rem; font-size: 0.8rem; color: var(--text-muted);">May 14, 2025 · 6 min read</div></div>
+                <div class="scroll-card"><div class="scroll-tag">Tutorial</div><h3>Getting started with knowledge graphs</h3><p>Map your organization's hidden connections.</p><div style="margin-top: 1rem; font-size: 0.8rem; color: var(--text-muted);">May 8, 2025 · 5 min read</div></div>
+                <div class="scroll-card"><div class="scroll-tag">Product</div><h3>What's new in Lumina 2.0</h3><p>Introducing persistent memory and 20+ new connectors.</p><div style="margin-top: 1rem; font-size: 0.8rem; color: var(--text-muted);">May 2, 2025 · 4 min read</div></div>
             </div>
         </div>
     </section>
 
-    <!-- FAQ Accordion -->
-    <section id="faq" class="faq-section">
+    <!-- Pricing -->
+    <section id="pricing" class="pricing-section">
         <div class="container">
-            <h2 class="section-title">Frequently asked questions</h2>
-            <div class="faq-item"><div class="faq-question">How long does it take to set up? <i class="fas fa-chevron-down"></i></div><div class="faq-answer">Most teams go from signup to first query in under 10 minutes. Our guided onboarding walks you through connecting data sources.</div></div>
-            <div class="faq-item"><div class="faq-question">Is my data secure? <i class="fas fa-chevron-down"></i></div><div class="faq-answer">Yes. Enterprise‑grade encryption at rest and in transit. We never train on your data without explicit permission. SOC2 Type II certification pending.</div></div>
-            <div class="faq-item"><div class="faq-question">Can I deploy on my own servers? <i class="fas fa-chevron-down"></i></div><div class="faq-answer">Absolutely. Orbital offers on‑premise and VPC deployments for enterprise customers.</div></div>
-            <div class="faq-item"><div class="faq-question">What file formats are supported? <i class="fas fa-chevron-down"></i></div><div class="faq-answer">PDF, DOCX, TXT, Markdown, HTML, JSON, CSV, and more. Images with OCR coming soon.</div></div>
-        </div>
-    </section>
-
-    <!-- Blog Compact -->
-    <section class="blog-compact">
-        <div class="container">
-            <h2 class="section-title">Latest from Orbital</h2>
-            <div class="blog-compact-grid">
-                <div class="blog-compact-card"><div class="blog-compact-img"><i class="fas fa-newspaper"></i></div><div class="blog-compact-content"><div class="blog-tag" style="color: var(--peach); font-size: 0.7rem; text-transform: uppercase;">Research</div><h3>Introducing 2M token context window</h3><p>Read the entire Lord of the Rings trilogy in one prompt.</p><div style="font-size: 0.75rem; color: #6b7280; margin-top: 0.5rem;">May 15, 2025</div></div></div>
-                <div class="blog-compact-card"><div class="blog-compact-img"><i class="fas fa-chart-line"></i></div><div class="blog-compact-content"><div class="blog-tag" style="color: var(--peach); font-size: 0.7rem; text-transform: uppercase;">Case Study</div><h3>How a law firm saved 200 hours monthly</h3><p>Document review and legal research accelerated.</p><div style="font-size: 0.75rem; color: #6b7280; margin-top: 0.5rem;">May 10, 2025</div></div></div>
+            <h2 style="font-size: 2rem; text-align: center; margin-bottom: 1rem;">Simple, transparent pricing</h2>
+            <p style="text-align: center; color: var(--text-muted); margin-bottom: 3rem;">No hidden fees. Cancel anytime.</p>
+            <div class="pricing-grid">
+                <div class="pricing-card"><h3>Free</h3><div class="price">$0<span>/month</span></div><ul style="list-style: none; margin: 1rem 0;"><li style="padding: 0.3rem 0;">✓ 500 queries/month</li><li style="padding: 0.3rem 0;">✓ 3 integrations</li><li style="padding: 0.3rem 0;">✓ Community support</li></ul><a href="#" class="btn-outline">Get started</a></div>
+                <div class="pricing-card featured"><div class="badge-popular">Most popular</div><h3>Pro</h3><div class="price">$29<span>/month</span></div><ul style="list-style: none; margin: 1rem 0;"><li style="padding: 0.3rem 0;">✓ 10K queries/month</li><li style="padding: 0.3rem 0;">✓ All 50+ integrations</li><li style="padding: 0.3rem 0;">✓ Priority support</li><li style="padding: 0.3rem 0;">✓ Knowledge graphs</li></ul><a href="#" class="btn-primary">Start trial</a></div>
+                <div class="pricing-card"><h3>Enterprise</h3><div class="price">Custom</div><ul style="list-style: none; margin: 1rem 0;"><li style="padding: 0.3rem 0;">✓ Unlimited queries</li><li style="padding: 0.3rem 0;">✓ On‑prem deployment</li><li style="padding: 0.3rem 0;">✓ Dedicated support</li><li style="padding: 0.3rem 0;">✓ SOC2 / HIPAA</li></ul><a href="#" class="btn-outline">Contact sales</a></div>
             </div>
         </div>
     </section>
 
-    <!-- Pricing Simplified -->
-    <section id="pricing" class="pricing-simple">
-        <div class="container">
-            <h2 class="section-title">Simple, predictable pricing</h2>
-            <div class="pricing-simple-grid">
-                <div class="pricing-simple-card"><h3>Free</h3><div class="price" style="font-size: 2rem; font-weight: 700; color: var(--peach); margin: 0.5rem 0;">$0</div><p>100 queries/month · Basic memory</p><a href="#" class="btn-outline" style="margin-top: 1rem; display: inline-block;">Get started</a></div>
-                <div class="pricing-simple-card featured"><h3>Pro</h3><div class="price" style="font-size: 2rem; font-weight: 700; color: var(--peach); margin: 0.5rem 0;">$29</div><p>10K queries/month · Full memory · API access</p><a href="#" class="btn-primary" style="margin-top: 1rem; display: inline-block;">Start trial</a></div>
-                <div class="pricing-simple-card"><h3>Enterprise</h3><div class="price" style="font-size: 2rem; font-weight: 700; color: var(--peach); margin: 0.5rem 0;">Custom</div><p>Unlimited · On‑prem · Dedicated support</p><a href="#" class="btn-outline" style="margin-top: 1rem; display: inline-block;">Contact sales</a></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Privacy Policy -->
+    <!-- Privacy -->
     <div class="container" id="privacy">
         <div class="privacy-block">
             <h2><i class="fas fa-shield-alt" style="color: var(--peach);"></i> Privacy Policy</h2>
-            <p><strong>Effective:</strong> May 2025 | Orbital AI Inc.</p>
-            <h3>1. Information collection</h3><p>Account data, usage logs, and optional feedback. Your uploaded documents are never used for training without consent.</p>
-            <h3>2. Data usage</h3><p>To provide services, improve performance, process payments, and ensure security. No selling.</p>
-            <h3>3. Your rights</h3><p>Access, correct, delete, export. Contact privacy@orbital.ai</p>
-            <h3>4. Security</h3><p>AES‑256, TLS 1.3, regular audits.</p>
-            <p><strong>Contact:</strong> dpo@orbital.ai | Orbital AI, 101 Context Way, SF, CA 94105</p>
+            <p><strong>Effective:</strong> May 2025 | Lumina AI Inc.</p>
+            <h3>1. Information collection</h3><p>Account data, search queries, and usage patterns. Your documents and conversations are never used for training public models.</p>
+            <h3>2. Data usage</h3><p>To provide search and knowledge services, improve relevance, process payments, and ensure security. No selling.</p>
+            <h3>3. Your rights</h3><p>Access, correct, delete, export. Email privacy@lumina.ai</p>
+            <h3>4. Security</h3><p>AES‑256, TLS 1.3, regular audits. SOC2 Type II certified.</p>
+            <p><strong>Contact:</strong> dpo@lumina.ai | Lumina AI, 101 Discovery Way, San Francisco, CA 94105</p>
         </div>
     </div>
 </main>
 
+<!-- Footer 2 columns -->
 <footer>
     <div class="container">
-        <div class="footer-grid">
-            <div><h4>Orbital<span style="color:#f59e0b;">AI</span></h4><p>Contextual intelligence</p><div>© 2025</div></div>
-            <div><h4>Product</h4><a href="#how">How it works</a><a href="#pricing">Pricing</a><a href="#">API</a></div>
-            <div><h4>Resources</h4><a href="#">Blog</a><a href="#">Docs</a><a href="#">Support</a></div>
-            <div><h4>Legal</h4><a href="#privacy">Privacy</a><a href="#">Terms</a><a href="#">Security</a></div>
+        <div class="footer-two">
+            <div class="footer-brand">
+                <h3>Lumina<span style="color:#f97316;">AI</span></h3>
+                <p style="font-size: 0.8rem; margin-top: 0.5rem;">The intelligence weaver</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fab fa-discord"></i></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <div class="footer-links-col"><h4>Product</h4><a href="#features">Features</a><a href="#pricing">Pricing</a><a href="#">API</a><a href="#">Status</a></div>
+                <div class="footer-links-col"><h4>Resources</h4><a href="#blog">Blog</a><a href="#">Docs</a><a href="#">Support</a><a href="#">Community</a></div>
+                <div class="footer-links-col"><h4>Company</h4><a href="#">About</a><a href="#">Careers</a><a href="#privacy">Privacy</a><a href="#">Terms</a></div>
+            </div>
         </div>
-        <div style="text-align: center; font-size: 0.75rem;">AI with memory. AI you can trust.</div>
+        <div style="text-align: center; padding-top: 2rem; border-top: 1px solid #334155; font-size: 0.75rem;">© 2025 Lumina AI — Weaving knowledge into answers</div>
     </div>
 </footer>
 
 <a href="#" class="back-to-top"><i class="fas fa-arrow-up"></i></a>
 
 <script>
-    // Preloader
     window.addEventListener('load', function() {
         const preloader = document.getElementById('preloader');
         setTimeout(function() {
@@ -602,23 +255,6 @@
         }, 800);
     });
 
-    // FAQ Accordion
-    document.querySelectorAll('.faq-question').forEach(question => {
-        question.addEventListener('click', () => {
-            const answer = question.nextElementSibling;
-            answer.classList.toggle('active');
-            const icon = question.querySelector('i');
-            if (answer.classList.contains('active')) {
-                icon.classList.remove('fa-chevron-down');
-                icon.classList.add('fa-chevron-up');
-            } else {
-                icon.classList.remove('fa-chevron-up');
-                icon.classList.add('fa-chevron-down');
-            }
-        });
-    });
-
-    // Smooth scroll
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             const href = this.getAttribute('href');
